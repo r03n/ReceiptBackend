@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Receipt Dashboard</title>
+        <script src="/socket.io/socket.io.js"></script>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>
+        <div class="header">
+            <h1>Receipt Dashboard</h1>
+            <div class="tabs">
+                <a href="#" id="tab-all" class="tab" onclick="app.showAllReceipts(event)">All Receipts</a>
+                <a href="#" id="tab-latest" class="tab" onclick="app.showLatestReceipt(event)">Latest Receipt</a>
+            </div>
+        </div>
+        <div id="container" class="container">
+            <!-- Content gets injected here -->
+        </div>
+
+        <!-- Templates -->
+        <template id="tpl-receipt-card">
+            <div class="receipt-card" onclick="app.showReceiptDetail('{{ID}}')">
+                <div class="receipt-info">
+                    <h3>{{SHORT_ID}}</h3>
+                    <p class="date">{{DATE}}</p>
+                </div>
+                <div class="qr-thumb">
+                    <img src="/qrcodes/{{ID}}.png" alt="QR Code" />
+                </div>
+            </div>
+        </template>
+
+        <template id="tpl-homepage">
+            <div id="receipts-grid" class="receipts-grid">
+                <!-- Cards get injected here -->
+            </div>
+        </template>
+
+        <template id="tpl-empty-state">
+            <div class="empty">
+                <h2>{{TITLE}}</h2>
+                <p>{{DESCRIPTION}}</p>
+                <div id="empty-extra"></div>
+            </div>
+        </template>
+
+        <template id="tpl-receipt-detail">
+            <div class="receipt-detail">
+                <div class="detail-header">
+                    <h2>{{TITLE}}</h2>
+                    <p class="receipt-id">ID: {{ID}}</p>
+                    <p class="receipt-date">Created: {{DATE}}</p>
+                </div>
+                <div class="qr-container">
+                    <img src="/qrcodes/{{ID}}.png" alt="QR Code" />
+                    <p>Scan to view receipt</p>
+                </div>
+                <div class="actions">
+                    <a href="/receipt/{{ID}}" class="btn-download">Download Receipt Data</a>
+                    <a href="#" class="btn-back" onclick="app.goBack(event)">← {{BACK_TEXT}}</a>
+                </div>
+            </div>
+        </template>
+
+        <script src="/app.js"></script>
+    </body>
+</html>

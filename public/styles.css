@@ -1,0 +1,239 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #141218; /* Surface Container Lowest */
+    color: #e6e1e5; /* On-Surface */
+    min-height: 100vh;
+}
+
+.header {
+    background-color: #211f26; /* Surface Container */
+    padding: 24px 20px;
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3); /* M3 Elevation 2 */
+}
+
+.header h1 {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    color: #e6e1e5; /* On-Surface */
+    letter-spacing: 0px;
+}
+
+.tabs {
+    display: flex;
+    gap: 12px;
+}
+
+.tab {
+    padding: 0 24px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid #938f99; /* Outline Variant */
+    border-radius: 100px; /* Pill shape */
+    color: #cac4d0; /* On-Surface Variant */
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.1px;
+}
+
+.tab.active {
+    background-color: #d0bcff; /* Primary */
+    color: #381e72; /* On-Primary */
+    border-color: transparent;
+}
+
+.tab:hover:not(.active) {
+    background-color: rgba(230, 225, 229, 0.08); /* Hover state overlay */
+    color: #e6e1e5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 20px;
+}
+
+.receipts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.receipt-card {
+    background-color: #1d1b20; /* Surface Container Low */
+    border-radius: 16px;
+    padding: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #49454f; /* Outline Variant */
+}
+
+.receipt-card:hover {
+    background-color: #2b2930; /* Surface Container High */
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3); /* M3 Elevation 2 */
+}
+
+.receipt-info h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: #e6e1e5;
+    letter-spacing: 0.15px;
+}
+
+.date {
+    font-size: 14px;
+    color: #cac4d0; /* On-Surface Variant */
+    margin-bottom: 16px;
+    letter-spacing: 0.25px;
+}
+
+.qr-thumb {
+    text-align: center;
+}
+
+.qr-thumb img {
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+}
+
+.receipt-detail {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.detail-header {
+    margin-bottom: 24px;
+    padding: 24px;
+    background-color: #1d1b20; /* Surface Container Low */
+    border-radius: 16px;
+    border: 1px solid #49454f;
+}
+
+.detail-header h2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    color: #e6e1e5;
+}
+
+.receipt-id {
+    font-family: 'Courier New', monospace;
+    background-color: #141218; /* Surface Container Lowest */
+    color: #cac4d0;
+    padding: 8px 16px;
+    border-radius: 8px;
+    display: inline-block;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.receipt-date {
+    color: #cac4d0;
+    font-size: 14px;
+    margin-top: 12px;
+    letter-spacing: 0.25px;
+}
+
+.qr-container {
+    margin: 24px 0;
+    padding: 32px;
+    background-color: #1d1b20; /* Surface Container Low */
+    border-radius: 16px;
+    border: 1px solid #49454f;
+}
+
+.qr-container img {
+    width: 320px;
+    height: 320px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+}
+
+.qr-container p {
+    color: #cac4d0;
+    font-size: 14px;
+    letter-spacing: 0.25px;
+}
+
+.actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 32px;
+}
+
+/* Material 3 Filled Button */
+.btn-download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 0 24px;
+    background-color: #d0bcff; /* Primary */
+    color: #381e72; /* On-Primary */
+    text-decoration: none;
+    border-radius: 100px; /* Pill shape */
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.1px;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.btn-download:hover {
+    background-color: #e8def8; /* Primary state layer */
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3); /* Elevation 1 */
+}
+
+/* Material 3 Outlined Button */
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 0 24px;
+    background-color: transparent;
+    color: #d0bcff; /* Primary color for text */
+    border: 1px solid #938f99; /* Outline */
+    text-decoration: none;
+    border-radius: 100px;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.1px;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.btn-back:hover {
+    background-color: rgba(208, 188, 255, 0.08); /* Primary state layer on transparent */
+    border-color: #cac4d0;
+}
+
+.empty {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.empty h2 {
+    color: #e6e1e5;
+    margin-bottom: 16px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.empty p {
+    color: #cac4d0;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
